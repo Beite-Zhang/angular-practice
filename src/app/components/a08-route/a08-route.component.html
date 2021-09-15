@@ -1,0 +1,9 @@
+<div class="page">
+    <p style="margin-bottom: 16px;">动态路由的参数获取是通过路由中定义的key值获取。多个动态路由参数，按照顺序传参即可。</p>
+    <div style="border-bottom: 1px solid #ccc;padding-bottom: 16px;margin-bottom: 16px;">
+        <span *ngFor="let i of [1,2,3,4];" style="margin-right: 8px;">
+            <a [routerLink]="['/a08', i, i+1]" routerLinkActive="active">{{i}}.跳转到子路由</a>
+        </span>
+    </div>
+    <router-outlet></router-outlet>
+</div>

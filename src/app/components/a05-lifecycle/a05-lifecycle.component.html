@@ -1,0 +1,142 @@
+<div style="padding: 16px;height: 100%;overflow: auto;">
+    <h2 style="text-align: center;margin-bottom: 8px;margin-top: 16px;">自己总结</h2>
+    <div style="width: 700px;margin: 0 auto 16px;">
+        <p style="margin-bottom: 8px;">1.&nbsp;在IDEA中写这些生命周期函数，如果不实现接口就会报警告。</p>
+        <p style="margin-bottom: 3px;">2.&nbsp;在IDEA中实现<code>ngDoCheck()</code>、<code>ngOnChanges()</code>就会报错。</p>
+        <p style="margin-bottom: 8px;">&nbsp;&nbsp;&nbsp;&nbsp;这两个方法在生产环境操作不当应该会造成框架出问题，所以应该一般都是开发环境调试用。</p>
+        <p style="margin-bottom: 3px;">3.&nbsp;<code>ngOnChanges()</code>会在父组件给子组件传值的时候，或者子组件给父组件传值的时候触发。</p>
+        <p style="margin-bottom: 8px;">&nbsp;&nbsp;&nbsp;&nbsp;基本上数据改变都会触发这个函数，所以挺危险的。</p>
+        <p style="margin-bottom: 3px;">4.&nbsp;<code>ngOnInit()</code>一般用来请求数据，初始化变量的。</p>
+        <p style="margin-bottom: 3px;">&nbsp;&nbsp;&nbsp;&nbsp;使用原因：</p>
+        <p style="margin-bottom: 3px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1.在构造函数之后马上执行复杂的初始化逻辑</p>
+        <p style="margin-bottom: 8px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2.在Angular设置完输入属性之后，对该组件进行准</p>
+        <p style="margin-bottom: 3px;">5.&nbsp;<code>ngDoCheck()</code>方法发生在<code>ngDoCheck()</code>、<code>ngOnChanges()</code>两个方法后面。</p>
+        <p style="margin-bottom: 3px;">&nbsp;&nbsp;&nbsp;&nbsp;这两个方法都是会对数据进行改动的函数。</p>
+        <p style="margin-bottom: 8px;">&nbsp;&nbsp;&nbsp;&nbsp;那么我们可以使用<code>ngDoCheck()</code>函数来查看我们的变量到底改变了没有。</p>
+        <p style="margin-bottom: 8px;">6.&nbsp;<code>ngAfterContentInit()</code>就是组件加载完成的时候触发。</p>
+        <p style="margin-bottom: 8px;">7.&nbsp;<code>ngAfterContentChecked()</code>就是视图（DOM）加载完成的时候触发。</p>
+        <p style="margin-bottom: 3px;">8.&nbsp;<code>ngOnDestroy()</code>组件销毁时触发。</p>
+        <p style="margin-bottom: 3px;">&nbsp;&nbsp;&nbsp;&nbsp;比如用户在关闭该组件时，检查一下用户填写的数据有没有保存什么的。</p>
+        <p style="margin-bottom: 3px;">&nbsp;&nbsp;&nbsp;&nbsp;如果没有保存那么就要进行一些操作，比如异步请求等。</p>
+    </div>
+    <h2 style="text-align: center;margin-bottom: 8px;">生命周期说明</h2>
+    <div class="ant-table ant-table-bordered" style="width: 700px;margin: 0 auto;">
+        <table>
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <thead class="ant-table-thead">
+            <tr>
+                <th>生命周期函数</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody class="ant-table-tbody">
+            <tr>
+                <td>ngOnChanges()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">当 Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges 对象</div>
+                    <div>在 ngOnInit() 之前以及所绑定的一个或多个输入属性的值发生变化时都会调用。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngOnInit()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">在 Angular 第一次显示数据绑定和设置指令/组件的输入属性之后，初始化指令/组件。</div>
+                    <div>在第一轮 ngOnChanges() 完成之后调用，只调用一次。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngDoCheck()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">检测，并在发生 Angular 无法或不愿意自己检测的变化时作出反应。</div>
+                    <div>在每个变更检测周期中，紧跟在 ngOnChanges() 和 ngOnInit() 后面调用。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngAfterContentInit()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">当 Angular 把外部内容投影进组件/指令的视图之后调用。</div>
+                    <div>第一次 ngDoCheck() 之后调用，只调用一次。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngAfterContentChecked()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">每当 Angular 完成被投影组件内容的变更检测之后调用。</div>
+                    <div>ngAfterContentInit() 和每次 ngDoCheck() 之后调用</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngAfterViewInit()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">当 Angular 初始化完组件视图及其子视图之后调用。</div>
+                    <div>第一次 ngAfterContentChecked() 之后调用，只调用一次。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngAfterViewChecked()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">每当 Angular 做完组件视图和子视图的变更检测之后调用。</div>
+                    <div>ngAfterViewInit() 和每次 ngAfterContentChecked() 之后调用。</div>
+                </td>
+            </tr>
+            <tr>
+                <td>ngOnDestroy()</td>
+                <td>
+                    <div style="margin-bottom: 8px;">每当 Angular 每次销毁指令/组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。</div>
+                    <div>在 Angular 销毁指令/组件之前调用。</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 style="text-align: center;margin-bottom: 8px;margin-top: 16px;">静态表格样式</h2>
+    <div class="ant-table ant-table-bordered" style="width: 700px;margin: 0 auto;">
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead class="ant-table-thead">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Tags</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody class="ant-table-tbody">
+            <tr>
+                <td><a>John Brown</a></td>
+                <td>32</td>
+                <td>New York No. 1 Lake Park</td>
+                <td>NICE</td>
+                <td>Invite 一 John Brown</td>
+            </tr>
+            <tr>
+                <td><a>Jim Green</a></td>
+                <td>42</td>
+                <td>London No. 1 Lake Park</td>
+                <td>LOSER</td>
+                <td>Invite 一 John Brown</td>
+            </tr>
+            <tr>
+                <td><a>Joe Black</a></td>
+                <td>32</td>
+                <td>Sidney No. 1 Lake Park</td>
+                <td>COOL</td>
+                <td>Invite 一 John Brown</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-bottom: 32px;visibility: hidden;">解决表格底部塌陷问题!</div>
+</div>
+

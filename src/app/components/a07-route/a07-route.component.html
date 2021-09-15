@@ -1,0 +1,10 @@
+<div class="page">
+    <div style="border-bottom: 1px solid #ccc;padding-bottom: 16px;margin-bottom: 16px;">
+        <span *ngFor="let i of [1,2,3,4];" style="margin-right: 8px;">
+            <!--↓↓↓这样传值会将问号转义-->
+            <!--<a [routerLink]="'/a07/content?='+i" routerLinkActive="active">{{i}}.调整到子路由</a>-->
+            <a [routerLink]="'/a07/content'" [queryParams]="{id:i}" routerLinkActive="active">{{i}}.跳转到子路由</a>
+        </span>
+    </div>
+    <router-outlet></router-outlet>
+</div>

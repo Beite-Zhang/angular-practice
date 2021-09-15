@@ -1,0 +1,10 @@
+.box {
+  border: 1px solid #ccc;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding: 16px;
+}
+
+.box-item {
+  margin-bottom: 8px;
+}

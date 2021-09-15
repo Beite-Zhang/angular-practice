@@ -1,0 +1,7 @@
+<div style="padding: 16px;">
+    <button (click)="getDataList()" style="margin-right: 16px;">异步get请求</button>
+    <button (click)="sendPost()">异步post请求</button>
+    <ul style="margin-top: 16px;">
+        <li *ngFor="let item of dataList">{{item.title}}</li>
+    </ul>
+</div>

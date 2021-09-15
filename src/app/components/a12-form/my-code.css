@@ -1,0 +1,26 @@
+code {
+    color: #ff7600;
+    background: #fbf7f8;
+    margin: 2px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    font-size: 14px;
+    word-wrap: break-word;
+    padding: 2px 4px;
+}
+
+blockquote {
+    padding: 0 15px;
+    margin: 16px 0 0 !important;
+    color: #666;
+    border-left: 4px solid #ddd;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}

@@ -1,0 +1,11 @@
+blockquote {
+    padding: 0 15px;
+    margin: 16px 0 0 !important;
+    color: #666;
+    border-left: 4px solid #ddd;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}

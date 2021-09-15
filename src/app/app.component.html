@@ -1,0 +1,25 @@
+<div class="page">
+  <div class="title">
+    <h2>Fidel Yiu的Angular练习项目</h2>
+    <div style="font-size: 12px;margin-top: 8px;">
+      <span>
+        开发时效统计:
+        [ <em><a href="https://wakatime.com/" target="_blank" rel="开发时效统计">wakatime</a></em> ]
+      </span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-nav">
+      <nav>
+        <ul>
+          <li class="nav-item" *ngFor="let item of routerList;let i = index;">
+            <a [routerLink]="item.path" routerLinkActive="active">{{i+1}}.{{item.name}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="content-code">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

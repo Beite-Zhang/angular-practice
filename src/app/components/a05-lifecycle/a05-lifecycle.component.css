@@ -1,0 +1,115 @@
+code{
+    color: #ff7600;
+    background: #fbf7f8;
+    margin: 2px;
+    border: 1px solid #d6d6d6;
+    border-radius: 3px;
+    font-size: 14px;
+    word-wrap: break-word;
+    padding: 2px 4px;
+}
+
+.ant-table table,
+.ant-table-bordered .ant-table-body > table,
+.ant-table-bordered .ant-table-fixed-left table,
+.ant-table-bordered .ant-table-fixed-right table,
+.ant-table-bordered .ant-table-header > table {
+    border: 1px solid #e8e8e8;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.ant-table table {
+    width: 100%;
+    text-align: left;
+    border-radius: 4px 4px 0 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table {
+    display: table;
+}
+
+.ant-table {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, .65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    clear: both;
+}
+
+col {
+    display: table-column;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.ant-table-tbody > tr,
+.ant-table-thead > tr {
+    transition: all .3s, height 0s;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.ant-table-thead > tr:first-child > th:first-child {
+    border-top-left-radius: 4px;
+}
+
+.ant-table-thead > tr:first-child > th:last-child {
+    border-top-right-radius: 4px;
+}
+
+.ant-table-bordered .ant-table-tbody > tr > td,
+.ant-table-bordered .ant-table-thead > tr > th {
+    border-right: 1px solid #e8e8e8;
+}
+
+.ant-table-tbody > tr > td,
+.ant-table-thead > tr > th {
+    padding: 16px;
+    overflow-wrap: break-word;
+}
+
+.ant-table-thead > tr > th {
+    color: rgba(0, 0, 0, .85);
+    font-weight: 500;
+    text-align: left;
+    background: #fafafa;
+    border-bottom: 1px solid #e8e8e8;
+    transition: background .3s ease;
+}
+
+.ant-table-row-cell-break-word {
+    word-break: break-word;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.ant-table-tbody > tr,
+.ant-table-thead > tr {
+    transition: all .3s, height 0s;
+}
+
+.ant-table-tbody > tr > td {
+    border-bottom: 1px solid #e8e8e8;
+    transition: all .3s, border 0s;
+}

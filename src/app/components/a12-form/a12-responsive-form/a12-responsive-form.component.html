@@ -1,0 +1,103 @@
+<h3>1.响应式表单</h3>
+<div style="margin: 8px 0 16px;">
+    <p style="margin-bottom: 8px;">1. 在你的应用中注册响应式表单模块。该模块声明了一些你要用在响应式表单中的指令。</p>
+    <p style="margin-bottom: 8px;">2. 生成一个新的 FormControl 实例，并把它保存在组件中。</p>
+    <p style="margin-bottom: 8px;">3. 在模板中注册这个 FormControl。</p>
+    <p style="margin-bottom: 8px;">4. 然后通过 FormControl 对应的变量名可以获取到值: <code>responsiveControl.value</code></p>
+</div>
+<div>
+    <div style="margin-bottom: 8px;">响应式表: <input type="text" [formControl]="responsiveControl"></div>
+    <div style="margin-bottom: 8px;">花括号解析值:{{responsiveControl.value}}</div>
+    <button (click)="updateValue()">通过 updateValue() 修改值</button>
+</div>
+<div style="border-bottom: 1px solid #eee;margin: 16px 0;"></div>
+<h3 style="margin-bottom: 16px;">2.响应式表单组</h3>
+<div style="margin-bottom: 8px;">
+    <p style="margin-bottom: 8px;">1. 创建一个 FormGroup 实例。</p>
+    <p style="margin-bottom: 8px;">2. 把这个 FormGroup 模型关联到视图。</p>
+    <p style="margin-bottom: 8px;">3. 保存表单数据。</p>
+    <p style="margin-bottom: 8px;">4. 还是要写 FormControl。</p>
+</div>
+<div style="margin-bottom: 8px;">
+    <form [formGroup]="formGroup" (ngSubmit)="onFormGroupSubmit()">
+        <div style="margin-bottom: 8px;">
+            <label for="firstName">First Name:</label>
+            <input id="firstName" type="text" formControlName="firstName">
+        </div>
+        <div style="margin-bottom: 8px;">
+            <label>Last Name:</label>
+            <input id="lastName" type="text" formControlName="lastName">
+        </div>
+        <div formGroupName="address">
+            <div style="margin-bottom: 8px;">
+                <label for="city">City:</label>
+                <input id="city" type="text" formControlName="city">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label for="street">Street:</label>
+                <input id="street" type="text" formControlName="street">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label for="state">State:</label>
+                <input id="state" type="text" formControlName="state">
+            </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+            <button type="submit" [disabled]="!formGroup.valid">提交</button>
+        </div>
+    </form>
+    <blockquote>
+        <p>注意这里的表单组不能拿Form标签嵌套。</p>
+        <p>而且要给嵌套的表单添加 <code>formGroupName="address"</code> 的属性。</p>
+        <p>否则会报错</p>
+    </blockquote>
+</div>
+<button (click)="patchValue()">通过 patchValue() 修改值</button>
+<blockquote>
+    <p>使用 setValue() 方法来为单个控件设置新值。 setValue() 方法会严格遵循表单组的结构，并整体性替换控件的值。</p>
+    <p>使用 patchValue() 方法可以用对象中所定义的任何属性为表单模型进行替换，如果报错就不管。</p>
+</blockquote>
+<div style="border-bottom: 1px solid #eee;margin: 16px 0;"></div>
+<h3 style="margin-bottom: 16px;">3.使用 FormBuilder 服务</h3>
+<div style="margin-bottom: 8px;">
+    <p style="margin-bottom: 8px;">1. 导入 FormBuilder 类。</p>
+    <p style="margin-bottom: 8px;">2. 注入这个 FormBuilder 服务。</p>
+    <p style="margin-bottom: 8px;">3. 生成表单内容。</p>
+</div>
+<blockquote>
+    <p><code>FormBuilder</code> 仅仅是用来代替 <code>new FormControl()</code> 和 <code>new FormGroup()</code> 的。</p>
+</blockquote>
+<div style="margin-bottom: 8px;">
+    <form [formGroup]="formBuilderForm" (ngSubmit)="onFormBuilderSubmit()">
+        <div style="margin-bottom: 8px;">
+            <label for="inputOne">第一个输入框:</label>
+            <input id="inputOne" type="text" formControlName="inputOne">
+        </div>
+        <div style="margin-bottom: 8px;">
+            <label for="inputTwo">第二个输入框:</label>
+            <input id="inputTwo" type="text" formControlName="inputTwo">
+        </div>
+        <div formGroupName="inputGroup">
+            <div style="margin-bottom: 8px;">
+                <label for="inputThree">第三个输入框:</label>
+                <input id="inputThree" type="text" formControlName="inputThree">
+            </div>
+            <div style="margin-bottom: 8px;">
+                <label for="inputFour">第四个输出框:</label>
+                <input id="inputFour" type="text" formControlName="inputFour">
+            </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+            <button type="submit" [disabled]="!formGroup.valid">提交</button>
+        </div>
+    </form>
+</div>
+<blockquote>
+    <p><code>FormBuilder</code> 中控件名对应的是一个数组。</p>
+    <p>数组中的第一项是其初始值。</p>
+    <p>数组中的第二项是同步验证器。</p>
+    <p>数组中的第三项是异步验证器。</p>
+</blockquote>
+<div style="margin-bottom: 32px;visibility: hidden;">解决底部塌陷问题!</div>
+
+

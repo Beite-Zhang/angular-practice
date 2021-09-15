@@ -1,0 +1,47 @@
+<div style="padding: 16px;height: 100%;overflow: auto;">
+    <h2 style="text-align: center;margin-bottom: 8px;">两种表单的区别</h2>
+    <div class="ant-table ant-table-bordered" style="width: 800px;margin: 0 auto;">
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead class="ant-table-thead">
+            <tr>
+                <th>区分点</th>
+                <th><a [routerLink]="'/a12/responsive'" routerLinkActive="active">响应式表单</a></th>
+                <th><a [routerLink]="'/a12/template'" routerLinkActive="active">Model驱动表单</a></th>
+            </tr>
+            </thead>
+            <tbody class="ant-table-tbody">
+            <tr>
+                <td>扩展性</td>
+                <td>强</td>
+                <td>弱</td>
+            </tr>
+            <tr>
+                <td>创建方式</td>
+                <td>显式的，通过 <code>[formControl]</code> 、 <code>[formGroup]</code> 维护表单。</td>
+                <td>隐式的，通过 <code>[(ngModel)]</code> 双向绑定。</td>
+            </tr>
+            <tr>
+                <td>创建完成</td>
+                <td>同步，可预测。</td>
+                <td>异步，不可预测。</td>
+            </tr>
+            <tr>
+                <td>表单验证</td>
+                <td>自己手动写函数验证。</td>
+                <td>通过指令验证。</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <blockquote>
+        <p>两种表单都是基于一些Angular封装的类使用的。</p>
+        <p>所以就算响应式调单手写HTML，但是也要引入一些Angular的Form依赖，方便操作。</p>
+    </blockquote>
+    <div style="border-bottom: 1px solid #ccc;margin: 16px 0;"></div>
+    <router-outlet></router-outlet>
+</div>
